@@ -1,3 +1,44 @@
 // Place all the styles related to the comic/comics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body { 
+    margin: 0; 
+    background-color: #2b2b2b;
+    color: white;
+}
+.row, .col { overflow: hidden; position: absolute; }
+.row { left: 0; right: 0; }
+.col { top: 0; bottom: 0; }
+.scroll-x { overflow-x: auto; }
+.scroll-y { overflow-y: auto; }
+
+.header.row { height: 75px; top: 0; }
+.body.row { top: 75px; bottom: 50px; }
+.footer.row { height: 50px; bottom: 0; }
+
+.butt {
+    border: 1px outset white;
+    background-color: white;
+    color: rgba(217,35,36,255);
+    cursor:pointer;
+ }
+
+.left-button { float: left; }
+.right-button { float: right; }
+
+.container {
+    margin: 0 auto;
+    max-width: 90rem;
+    width: 90%;
+}
+  
+.comics-header-container {
+    background: rgba(217,35,36,0.9);
+}

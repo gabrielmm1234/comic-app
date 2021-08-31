@@ -1,5 +1,14 @@
-<h1>List of Marvel Comics</h1>
+<div class="comics-header-container header row">
+    <%= image_tag("marvel_logo.png", :alt => "Marvel Logo", :class => "center") %>
+</div>
 
-<% @comics.each do |comic| %>
-    <p><%= comic %></p>
-<% end %>
+<div class="body row scroll-y container">
+    <% @comics.each do |comic| %>
+        <p><%= comic %></p>
+    <% end %>
+</div>
+
+<div class="footer row container">
+    <button class="left-button butt">PREVIOUS PAGE</button>
+    <button class="right-button butt">NEXT PAGE</button>
+</div>
