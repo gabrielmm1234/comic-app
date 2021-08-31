@@ -5,7 +5,7 @@ module HttpOut
             COMICS_AMOUNT = 50
             FORMAT_TYPE = 'comic'
             FORMAT = 'comic'
-            ORDER_BY = 'onsaleDate'
+            ORDER_BY = '-focDate'
             
             def initialize(rest_client, comic_adapter)
                 @rest_client = rest_client
