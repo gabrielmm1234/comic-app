@@ -1,4 +1,5 @@
 require 'digest/md5'
+
 module HttpOut
     module Comic
         class Component
