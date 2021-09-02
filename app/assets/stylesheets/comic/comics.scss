@@ -34,19 +34,21 @@ body {
     height: 75px; 
     top: 0; 
 }
-.body.row { 
-    top: 75px; 
-    bottom: 50px; 
+.body.row {
+    top: 0px;
+    bottom: 100px;
+    padding-top: 75px;
 }
 .footer.row { 
     height: 50px; 
     bottom: 0; 
 }
-.butt {
+.button {
     border: 1px outset white;
     background-color: white;
     color: rgba(217,35,36,255);
     padding: 10px;
+    font-weight: bold;
     cursor:pointer;
  }
 .left-button { 
@@ -57,10 +59,25 @@ body {
 }
 .container {
     margin: 0 auto;
-    max-width: 90rem;
+    max-width: 60rem;
     width: 90%;
 }
 .comics-header-container {
     background: rgba(217,35,36,0.9);
-    padding-top: 15px; 
+    z-index: 10;
+    justify-content: center;
+}
+.image {
+    padding-top: 15px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 180px 180px 180px 180px 180px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+}
+.grid-item {
+    font-size: 30px;
+    text-align: center;
 }

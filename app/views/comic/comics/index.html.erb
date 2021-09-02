@@ -1,14 +1,14 @@
 <div class="comics-header-container header row">
-    <%= image_tag("marvel_logo.png", :alt => "Marvel Logo", :class => "center") %>
+    <%= image_tag("marvel_logo.png", :alt => "Marvel Logo", :class => "center image") %>
 </div>
 
-<div class="body row scroll-y container">
+<div class="body row scroll-y container grid-container">
     <% @comics.each do |comic| %>
-        <p><%= comic %></p>
+        <%= image_tag(comic.image, :class => "grid-item") %>
     <% end %>
 </div>
 
 <div class="footer row container">
-    <button class="left-button butt">PREVIOUS PAGE</button>
-    <button class="right-button butt">NEXT PAGE</button>
+    <button class="left-button button">PREVIOUS PAGE</button>
+    <button class="right-button button">NEXT PAGE</button>
 </div>
