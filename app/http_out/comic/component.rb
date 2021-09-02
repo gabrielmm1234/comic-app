@@ -3,7 +3,7 @@ require 'digest/md5'
 module HttpOut
     module Comic
         class Component
-            COMICS_AMOUNT = 50
+            COMICS_AMOUNT = 20
             FORMAT_TYPE = 'comic'
             FORMAT = 'comic'
             ORDER_BY = '-focDate'
