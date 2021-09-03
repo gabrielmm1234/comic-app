@@ -31,13 +31,13 @@ body {
     overflow-y: auto; 
 }
 .header.row { 
-    height: 75px; 
+    height: 120px; 
     top: 0; 
 }
 .body.row {
     top: 0px;
     bottom: 100px;
-    padding-top: 75px;
+    padding-top: 120px;
 }
 .footer.row { 
     height: 50px; 
@@ -86,4 +86,8 @@ input[disabled]{
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+}
+.comic-input {
+    margin-top: 5px;
+    line-height: 1.8em;
 }

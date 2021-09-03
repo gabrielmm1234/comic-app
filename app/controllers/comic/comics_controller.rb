@@ -12,6 +12,7 @@ module Comic
     def index
       comic_adapter = Adapters::Comic::ComicAdapter
       http_component = HttpOut::Comic::Component.new(RestClient, comic_adapter, @page)
+      
       comic_service = Services::Comic::ComicService.new(http_component)
 
       @comics = comic_service.retrieve_comics

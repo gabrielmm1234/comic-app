@@ -17,7 +17,9 @@ So basically, when you request for /comics endpoint it will reach the routes por
 
 The ComicService just need a http_component to be injected in order to work and the http_component needs and adapter to work as an anti-corruption-layer. This way it's flexibe, for example, to create a new http_component to deal with DC comics API for example and use the same ComicService to orchestrate all the necessary behaviour.
 
-To summarize, I have four basic types of classes: Services, port handlers (controllers and http_components), adapters and domain classes. 
+To summarize, I have four basic types of classes: Services, port handlers (controllers and http_components), adapters and domain classes.
+
+Also, everyting is under the comic module. This way it's possible to make the application more modular and create a specific module for dc_comic for example and deal with different providers altogether.
 
 ### Tests
 
