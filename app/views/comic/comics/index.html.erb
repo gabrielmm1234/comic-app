@@ -9,6 +9,8 @@
 </div>
 
 <div class="footer row container">
-    <button class="left-button button">PREVIOUS PAGE</button>
-    <button class="right-button button">NEXT PAGE</button>
+
+
+<%= button_to 'PREVIOUS PAGE', {:controller => "comics", :action => "index"}, {id: 'previous-button', class: 'left-button button', :method=>:get, params: {:page => @page - 1}} %>
+<%= button_to 'NEXT PAGE', {:controller => "comics", :action => "index"}, {id: 'next-button', class: 'right-button button', :method=>:get, params: {:page => @page + 1}} %>
 </div>

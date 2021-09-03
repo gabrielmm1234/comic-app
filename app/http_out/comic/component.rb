@@ -4,25 +4,25 @@ module HttpOut
     module Comic
         class Component
             COMICS_AMOUNT = 20
-            OFFSET = 0
             FORMAT_TYPE = 'comic'
             FORMAT = 'comic'
             ORDER_BY = '-focDate'
             
-            def initialize(rest_client, comic_adapter)
+            def initialize(rest_client, comic_adapter, page)
                 @rest_client = rest_client
-                @base_url = 'https://gateway.marvel.com:443'
-                @public_key = ENV['MARVEL_PUBLIC_KEY']
-                @private_key = ENV['MARVEL_PRIVATE_KEY']
+                @base_url ||= 'https://gateway.marvel.com:443'
+                @public_key ||= ENV['MARVEL_PUBLIC_KEY']
+                @private_key ||= ENV['MARVEL_PRIVATE_KEY']
                 @timestamp = DateTime.now.strftime("%Q")
                 @hash = Digest::MD5.hexdigest(@timestamp + @private_key + @public_key)
 
-                @comic_adapter = comic_adapter
+                @page ||= page
+                @comic_adapter ||= comic_adapter
             end
 
             def get_comics
                 begin
-                    comics = @rest_client.get build_url("/v1/public/comics?apikey=#{@public_key}&hash=#{@hash}&ts=#{@timestamp}&format=#{FORMAT}&formatType=#{FORMAT_TYPE}&orderBy=#{ORDER_BY}&limit=#{COMICS_AMOUNT}&offset=#{OFFSET}")
+                    comics = @rest_client.get build_url("/v1/public/comics?apikey=#{@public_key}&hash=#{@hash}&ts=#{@timestamp}&format=#{FORMAT}&formatType=#{FORMAT_TYPE}&orderBy=#{ORDER_BY}&limit=#{COMICS_AMOUNT}&offset=#{compute_offset}")
                 rescue RestClient::RequestFailed => error
                     puts error.response #treat better the error
                 else
@@ -31,6 +31,10 @@ module HttpOut
             end
 
             private
+
+            def compute_offset
+                @page * COMICS_AMOUNT
+            end
 
             def build_url(url)
                 @base_url + url
