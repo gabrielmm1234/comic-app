@@ -12,6 +12,6 @@
 <div class="footer row container">
 
 
-<%= button_to 'PREVIOUS PAGE', {:controller => "comics", :action => "index"}, {id: 'previous-button', class: 'left-button button', :method=>:get, params: {:page => @page - 1}} %>
-<%= button_to 'NEXT PAGE', {:controller => "comics", :action => "index"}, {id: 'next-button', class: 'right-button button', :method=>:get, params: {:page => @page + 1}} %>
+<%= button_to 'PREVIOUS PAGE', {:controller => "comics", :action => "index"}, {id: 'previous-button', class: 'left-button button', :method=>:get, params: {:page => @page - 1, :name => @name}} %>
+<%= button_to 'NEXT PAGE', {:controller => "comics", :action => "index"}, {id: 'next-button', class: 'right-button button', :method=>:get, params: {:page => @page + 1, :name => @name}} %>
 </div>
