@@ -7,7 +7,7 @@ module Services
 
             def retrieve_comics
                 character = @http.get_character
-                comics = @http.get_comics(character&.id)
+                comics = @http.get_comics(character)
             end
         end
     end
