@@ -25,6 +25,9 @@ Also, everyting is under the comic module. This way it's possible to make the ap
 
 I used Rspec to test my code, so in order to run the tests just run "bundle exec rspec"
 
+I created unit tests for adapters, entities and http components.
+I created integration tests to validate the whole flow starting from the controller
+
 ### Features
 
  - When I open the page I want to see a list of all Marvel’s released comic books covers ordered from most recent to the oldest.
