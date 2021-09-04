@@ -26,7 +26,7 @@ module HttpOut
                 response = @rest_client.get build_url("/v1/public/comics"), {params: build_comic_params(character_id)}
                 comics = JSON.parse(response.body)
             rescue RestClient::RequestFailed => error
-                puts error.response #treat better the error
+                return []
             ensure
                 return @comic_adapter.adapt(comics)
             end
