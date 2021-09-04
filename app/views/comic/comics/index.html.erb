@@ -1,6 +1,8 @@
 <div class="comics-header-container header row">
     <%= image_tag("marvel_logo.png", :alt => "Marvel Logo", :class => "center image") %>
-    <input type="text" placeholder="search" id="comic-search" class="center comic-input"><br><br>
+    <%= form_with url: "/comics", method: :get do |form| %>
+        <%= form.text_field :name, placeholder: "search", class: 'center comic-input' %>
+    <% end %>
 </div>
 
 <div class="body row scroll-y container grid-container">

@@ -27,6 +27,16 @@ I used Rspec to test my code, so in order to run the tests just run "bundle exec
 
 ### Features
 
+ - When I open the page I want to see a list of all Marvel’s released comic books covers ordered from most recent to the oldest.
+
+  -- Just access "https://comic-app-mesq.herokuapp.com" and it will be able to see comic books covers ordered.
+
+ - When I see the list of comics I want to be able to search by character (eg. “deadpool”)
+so I can find my favorite comics.
+
+  -- Just type in the input text the character name and hit enter in order to submit the form and search the character.
+
+
 ### How to run
 
 To test the application I decided to upload this to Heroku, here's the link:
