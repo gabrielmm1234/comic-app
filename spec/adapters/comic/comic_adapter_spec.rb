@@ -20,4 +20,33 @@ describe Adapters::Comic::ComicAdapter do
         expect(internal_comics).to eql(expected_result)
     end
   end
+
+  context 'when adapting comic filter params from view' do
+    it 'returns an internal structure representing filter params' do
+        params = {name: "deadpool", page: 1}.with_indifferent_access
+        expected_result = OpenStruct.new(name: "deadpool", page: 1)
+
+        view_params = described_class.adapt_view_params(params)
+
+        expect(view_params).to eql(expected_result)
+    end
+
+    it 'adapts page param to be always greater than zero' do
+        params = {name: "deadpool", page: -1}.with_indifferent_access
+        expected_result = OpenStruct.new(name: "deadpool", page: 0)
+
+        view_params = described_class.adapt_view_params(params)
+
+        expect(view_params).to eql(expected_result)
+    end
+
+    it 'adapts name param to be nil when it come as empty string' do
+        params = {name: "", page: 1}.with_indifferent_access
+        expected_result = OpenStruct.new(name: nil, page: 1)
+
+        view_params = described_class.adapt_view_params(params)
+
+        expect(view_params).to eql(expected_result)
+    end
+  end
 end
