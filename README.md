@@ -48,6 +48,16 @@ If you want to run locally you can just run "bundle install" + "rails s" and tes
 
 ### libs
 
+ - dry-struct
+
+ - dry-validation
+
+ - rest-client
+
+ - rubocop
+
+ - pry
+
 ### OBS
 
  - Some images return with a broken size and makes the grid a little bit weird, but it's necessary to maintain the front end responsive.
