@@ -38,6 +38,12 @@ module Adapters
                     name_param
                 end
             end
+
+            def self.adapt_upvote_params(params, user_id)
+                comic_id = params['comic_id']
+                vote_type = params['vote_type']
+                OpenStruct.new(user_id: user_id, comic_id: comic_id, vote_type: vote_type)
+            end
         end
     end
 end

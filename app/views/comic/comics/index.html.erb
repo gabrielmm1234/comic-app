@@ -33,12 +33,12 @@
   %>
   <%= button_to 'NEXT PAGE',
     {
-      :controller => "comics",
-      :action => "index"
+      controller: "comics",
+      action: "index"
     },
     {
       class: 'button',
-      :method=>:get,
+      method: :get,
       params: {:page => @filter_params.page + 1, :name => @filter_params.name}
     }
   %>

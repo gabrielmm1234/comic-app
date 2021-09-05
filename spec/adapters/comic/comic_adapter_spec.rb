@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'securerandom'
 require_relative '../../../app/adapters/comic/comic_adapter'
 require_relative '../../../app/entities/comic/comic'
 
@@ -45,6 +46,20 @@ describe Adapters::Comic::ComicAdapter do
         expected_result = OpenStruct.new(name: nil, page: 1)
 
         view_params = described_class.adapt_view_params(params)
+
+        expect(view_params).to eql(expected_result)
+    end
+  end
+
+  context 'when adapting comic upvote params from request' do
+    it 'returns an internal structure representing upvote command' do
+        user_id = SecureRandom.uuid
+        comic_id = 1
+        vote_type = 'up'
+        params = {user_id: user_id, comic_id: comic_id, vote_type: vote_type}.with_indifferent_access
+        expected_result = OpenStruct.new(user_id: user_id, comic_id: comic_id, vote_type: vote_type)
+
+        view_params = described_class.adapt_upvote_params(params, user_id)
 
         expect(view_params).to eql(expected_result)
     end
