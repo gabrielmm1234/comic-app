@@ -45,3 +45,7 @@ To test the application I decided to upload this to Heroku, here's the link:
 https://comic-app-mesq.herokuapp.com
 
 If you want to run locally you can just run "bundle install" + "rails s" and test locally. I didn't commit the .env file but I'll send in the zip in case you want to test locally.
+
+### OBS
+
+ - Some images return with a broken size and makes the grid a little bit weird, but it's necessary to maintain the front end responsive.
