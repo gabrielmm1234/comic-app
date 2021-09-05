@@ -1,19 +1,45 @@
-<div class="comics-header-container header row">
+<div class="comics-header-container">
     <%= image_tag("marvel_logo.png", :alt => "Marvel Logo", :class => "center image") %>
-    <%= form_with url: "/comics", method: :get do |form| %>
-        <%= form.text_field :name, placeholder: "search", class: 'center comic-input' %>
+
+    <%= form_with url: "/comics", method: :get, id: 'search-form' do |form| %>
+        <%= form.text_field :name, id: 'search-input', placeholder: "search", class: 'center comic-input' %>
     <% end %>
 </div>
 
-<div class="body row scroll-y container grid-container">
-    <% @comics.each do |comic| %>
-        <%= image_tag(comic.image, :class => "grid-item") %>
-    <% end %>
+<div id="comics-table" class="comics-table">
+    <div id="loading-wrapper" class="load-wrapper hidden flex align-center justify-center">
+      <div class="load">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="container flex gap-10 justify-center wrap justify-center">
+      <% @comics.each do |comic| %>
+          <%= image_tag(comic.image) %>
+      <% end %>
+    </div>
 </div>
 
-<div class="footer row container">
-
-
-<%= button_to 'PREVIOUS PAGE', {:controller => "comics", :action => "index"}, {id: 'previous-button', class: 'left-button button', :method=>:get, params: {:page => @filter_params.page - 1, :name => @filter_params.name}} %>
-<%= button_to 'NEXT PAGE', {:controller => "comics", :action => "index"}, {id: 'next-button', class: 'right-button button', :method=>:get, params: {:page => @filter_params.page + 1, :name => @filter_params.name}} %>
+<div class="footer container flex justify-between">
+  <%= button_to 'PREVIOUS PAGE',
+    { :controller => "comics", :action => "index" },
+    {
+      class: 'button',
+      method: :get,
+      params: {page: @filter_params.page - 1, name: @filter_params.name},
+      disabled: @filter_params.page - 1 < 0
+    }
+  %>
+  <%= button_to 'NEXT PAGE',
+    {
+      :controller => "comics",
+      :action => "index"
+    },
+    {
+      class: 'button',
+      :method=>:get,
+      params: {:page => @filter_params.page + 1, :name => @filter_params.name}
+    }
+  %>
 </div>

@@ -13,3 +13,95 @@
  *= require_tree .
  *= require_self
  */
+body { 
+    margin: 0; 
+    background-color: #2b2b2b;
+    color: white;
+    --header-height: 120px;
+}
+
+input:disabled,
+input[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.button {
+    border: 1px outset white;
+    background-color: white;
+    color: rgba(217,35,36,255);
+    padding: 10px;
+    font-weight: bold;
+    cursor:pointer;
+ }
+
+.container {
+    margin: 0 auto;
+    max-width: 60rem;
+    width: 90%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.line {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: rgb(217, 35, 36);
+}
+
+.load-wrapper {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .8);
+}
+.load .line:nth-last-child(1) {
+  animation: loadingKeyframes 0.6s 0.1s linear infinite;
+}
+.load .line:nth-last-child(2) {
+  animation: loadingKeyframes 0.6s 0.2s linear infinite;
+}
+.load .line:nth-last-child(3) {
+  animation: loadingKeyframes 0.6s 0.3s linear infinite;
+}
+
+@keyframes loadingKeyframes {
+  0 {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

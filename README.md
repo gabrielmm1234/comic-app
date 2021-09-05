@@ -37,8 +37,7 @@ I created integration tests to validate the whole flow starting from the control
  - When I see the list of comics I want to be able to search by character (eg. “deadpool”)
 so I can find my favorite comics.
 
-  -- Just type in the input text the character name and hit enter in order to submit the form and search the character.
-
+  -- Just type in the input text the character name and wait a second to debounce work and search for the appropriate character.
 
 ### How to run
 
