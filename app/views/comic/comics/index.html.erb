@@ -16,7 +16,9 @@
     </div>
     <div class="container flex gap-10 justify-center wrap justify-center">
       <% @comics.each do |comic| %>
-          <%= image_tag(comic.image) %>
+          <div class="comic-image">
+            <%= image_tag(comic.image) %>
+          </div>
       <% end %>
     </div>
 </div>
