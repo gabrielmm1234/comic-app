@@ -9,4 +9,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
     loadingWrapper.classList.remove('hidden')
     searchForm.submit()
   }, 800))
+
+  $(".upvote-heart").click(function () {
+    const comicId = $(this).parent().data('comicId');
+
+    $.post("/vote",
+      {
+        vote_type: "up",
+        comic_id: comicId
+      },
+      (data, status) => {
+        if (status == "success") {
+          $(this).parent().addClass("upvoted");
+        }
+      });
+  });
 });

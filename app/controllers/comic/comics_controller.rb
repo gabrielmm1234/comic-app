@@ -27,10 +27,11 @@ module Comic
     def vote
       comic_adapter = Adapters::Comic::ComicAdapter
       redis_component = Database::Comic::Component.new(REDIS)
-      upvote_command = comic_adapter.adapt_view_params(params)
+      upvote_command = comic_adapter.adapt_upvote_params(params, cookies.encrypted['user_session'])
 
       comic_service = Services::Comic::ComicService.new(db_component: redis_component)
-      comic_service.upvote_comic(upvote_command)
+      comic_service.vote_comic(upvote_command)
+      render json: {comic_id: upvote_command.comic_id}, status: :ok
     end
 
     private

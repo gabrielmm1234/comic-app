@@ -60,7 +60,7 @@ development:
     hmr: false
     # Inline should be set to true if using HMR
     inline: true
-    overlay: true
+    upvote-heart: true
     compress: true
     disable_host_check: true
     use_local_ip: false

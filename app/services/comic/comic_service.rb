@@ -13,9 +13,9 @@ module Services
 
             def vote_comic(vote_command)
                 if vote_command.vote_type == "up"
-                    db_component.upvote(vote_command)
+                    @db_component.upvote(vote_command)
                 elsif vote_command.vote_type == "down"
-                    db_component.downvote(vote_command)
+                    @db_component.downvote(vote_command)
                 end
             end
         end

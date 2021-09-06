@@ -7,7 +7,8 @@ module Adapters
             
             def self.adapt(comics)
                 comics['data']['results'].map do |result| 
-                    Entities::Comic::Comic.new(title: result['title'],
+                    Entities::Comic::Comic.new(id:    result['id'],
+                                               title: result['title'],
                                                image: adapt_image(result['thumbnail']))
                 end
             end

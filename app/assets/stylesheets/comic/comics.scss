@@ -21,8 +21,49 @@
 }
 
 .comic-image {
+  position: relative;
   width: 168px;
   text-align: center;
+  cursor: pointer;
+
+  &.upvoted  {
+    outline: solid 2px red;
+    .upvote-heart {
+      display: block;
+      background: no-repeat center url("/assets/heart_on.png");      
+    }
+  }
+}
+
+.disabled {
+  display: none;
+}
+
+.comic-image:hover {
+  .comic-image-tag {
+    opacity: 0.7;
+    background-color: black;
+    filter: alpha(opacity=100);
+  }
+  .upvote-heart {
+    display: block;
+  }
+}
+
+.upvote-heart {
+  display: none;
+  position: absolute;
+  color: white;
+  top: 5px;
+  right: 5px;
+  z-index: 10;
+  height: 30px;
+  width: 30px;
+  background: no-repeat center url("/assets/heart_off.png");
+  
+  &:hover {
+    background-image: url("/assets/heart_hover.png")
+  }
 }
 
 .footer {

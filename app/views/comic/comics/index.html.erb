@@ -16,8 +16,10 @@
     </div>
     <div class="container flex gap-10 justify-center wrap justify-center">
       <% @comics.each do |comic| %>
-          <div class="comic-image">
-            <%= image_tag(comic.image) %>
+          <div class="comic-image" data-comic-id=<%= comic.id %>>
+            <%= image_tag(comic.image, :class => "comic-image-tag") %>
+            <div class="upvote-heart">
+            </div>
           </div>
       <% end %>
     </div>
