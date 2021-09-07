@@ -39,6 +39,7 @@ group :development, :test do
   gem 'pry', '~> 0.13.1'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop', require: false
+  gem 'rails-controller-testing'
 end
 
 group :development do
