@@ -6,9 +6,12 @@ module Services
                 @db_component = db_component
             end
 
-            def retrieve_comics
+            def retrieve_comics(user_id)
                 character = @http.get_character
                 comics = @http.get_comics(character)
+
+                upvoted_comics = @db_component.upvoted_comics(user_id).map(&:to_i)
+                comics.map {|comic| comic.check!(upvoted_comics)}
             end
 
             def vote_comic(vote_command)

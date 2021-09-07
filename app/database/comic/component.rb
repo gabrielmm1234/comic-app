@@ -14,6 +14,10 @@ module Database
                 @redis.lrem(downvote_command.user_id, -1, downvote_command.comic_id)
                 @redis.decr(downvote_command.comic_id)
             end
+
+            def upvoted_comics(user_id)
+                @redis.lrange(user_id, 0, -1)
+            end
         end
     end
 end

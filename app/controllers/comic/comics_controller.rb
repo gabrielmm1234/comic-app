@@ -15,13 +15,15 @@ module Comic
       character_adapter = Adapters::Comic::CharacterAdapter
       @filter_params = comic_adapter.adapt_view_params(params)
 
+      redis_component = Database::Comic::Component.new(REDIS)
       http_component = HttpOut::Comic::Component.new(RestClient, 
                                                      comic_adapter, 
                                                      character_adapter, 
                                                      @filter_params)
-      comic_service = Services::Comic::ComicService.new(http_component: http_component)
+      comic_service = Services::Comic::ComicService.new(http_component: http_component, 
+                                                        db_component:   redis_component)
 
-      @comics = comic_service.retrieve_comics
+      @comics = comic_service.retrieve_comics(cookies.encrypted['user_session'])
     end
 
     def vote
