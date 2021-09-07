@@ -39,6 +39,11 @@ so I can find my favorite comics.
 
   -- Just type in the input text the character name and wait a second to debounce work and search for the appropriate character.
 
+ - When I see the list of comics I want to be able to upvote any of them so that the most
+popular are easy to find in the future
+
+  -- Just put the mouse over the comic, click on the hear to upvote and click again to downvote. The side effects are being recorded for the user during 30 minutes in redis. So if you update the page the upvoted will still appear.
+
 ### How to run
 
 To test the application I decided to upload this to Heroku, here's the link:
@@ -49,11 +54,16 @@ If you want to run locally you can just run "bundle install" + "rails s" and tes
 ### libs
 
  - dry-struct
+  It's a library to define immutable structs and have type validations on it. Instead of using ActiveModel I prefer to define simple immutable structures to be used as entities.
 
  - dry-validation
+  I wanted to use dry validation to check the contract between my service and Marvel's API. But I decided not to use and not add more complexity to the test. I think it's a really necessary feature in production, but for this test I decided not to use it.
 
  - rest-client
+  It's a library to make http calls to marvel's API.
 
  - rubocop
+  It's a library to enforce code style.
 
  - pry
+  I used a lot to debug some issues.
