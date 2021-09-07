@@ -13,14 +13,16 @@ describe HttpOut::Comic::Component do
             filter_params = OpenStruct.new(name: nil, page: 0)
             character = nil
     
-            comics = [{title: "deadpool", thumbnail: {path: "thumbnail-1.com", extension: "jpg"}},
-                      {title: "hulk", thumbnail: {path: "thumbnail-2.com", extension: "jpg"}}]
+            comics = [{id: 1, title: "deadpool", thumbnail: {path: "thumbnail-1.com", extension: "jpg"}},
+                      {id: 2, title: "hulk", thumbnail: {path: "thumbnail-2.com", extension: "jpg"}}]
             response = OpenStruct.new(body: {data: {results: comics}}.to_json)
             expect(rest_client).to receive(:get).and_return(response)
     
-            first_comic = Entities::Comic::Comic.new(title: "deadpool",
+            first_comic = Entities::Comic::Comic.new(id: 1,
+                                                     title: "deadpool",
                                                      image: "thumbnail-1.com/portrait_fantastic.jpg")
-            second_comic = Entities::Comic::Comic.new(title: "hulk",
+            second_comic = Entities::Comic::Comic.new(id: 2,
+                                                      title: "hulk",
                                                       image: "thumbnail-2.com/portrait_fantastic.jpg")
             expected_result = [first_comic, second_comic]
     
