@@ -30,7 +30,7 @@
     outline: solid 3px var(--marvel-red);
     .upvote-heart {
       display: block;
-      background: no-repeat center url("/assets/heart_on.png");      
+      background: no-repeat center image-url("/assets/heart_on.png");      
     }
   }
 }
@@ -59,10 +59,10 @@
   z-index: 9;
   height: 30px;
   width: 30px;
-  background: no-repeat center url("/assets/heart_off.png");
+  background: no-repeat center image-url("/assets/heart_off.png");
   
   &:hover {
-    background-image: url("/assets/heart_hover.png")
+    background-image: image-url("/assets/heart_hover.png")
   }
 }
 
