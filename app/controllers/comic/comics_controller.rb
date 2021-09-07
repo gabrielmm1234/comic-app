@@ -16,12 +16,12 @@ module Comic
       @filter_params = comic_adapter.adapt_view_params(params)
 
       redis_component = Database::Comic::Component.new(REDIS)
-      http_component = HttpOut::Comic::Component.new(RestClient, 
-                                                     comic_adapter, 
-                                                     character_adapter, 
+      http_component = HttpOut::Comic::Component.new(RestClient,
+                                                     comic_adapter,
+                                                     character_adapter,
                                                      @filter_params)
-      comic_service = Services::Comic::ComicService.new(http_component: http_component, 
-                                                        db_component:   redis_component)
+      comic_service = Services::Comic::ComicService.new(http_component: http_component,
+                                                        db_component: redis_component)
 
       @comics = comic_service.retrieve_comics(cookies.encrypted['user_session'])
     end
@@ -33,14 +33,14 @@ module Comic
 
       comic_service = Services::Comic::ComicService.new(db_component: redis_component)
       comic_service.vote_comic(upvote_command)
-      render json: {comic_id: upvote_command.comic_id}, status: :ok
+      render json: { comic_id: upvote_command.comic_id }, status: :ok
     end
 
     private
 
     def setup_session
       unless cookies.encrypted['user_session']
-        cookies.encrypted['user_session'] = { value: SecureRandom.uuid , expires: 30.minutes.from_now }
+        cookies.encrypted['user_session'] = { value: SecureRandom.uuid, expires: 30.minutes.from_now }
       end
     end
   end
